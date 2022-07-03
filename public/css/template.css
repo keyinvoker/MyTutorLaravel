@@ -1,0 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.bg-purple {
+    background-color: #6f42c1;
+}
+
+main {
+    min-height: 560px;
+}

@@ -1,4 +1,5 @@
 @extends('layouts.app')
+<link rel="stylesheet" href="{{asset('css/profile.css')}}">
 
 @section('content')
 <div class="container">
@@ -6,8 +7,8 @@
         <div class="col-md-8">
             <div class="card">
                 <center>
-                <div class="card-header">R E G I S T E R &nbsp; B E L O W</div>
-                <img style="width: 150px; margin: 6px;" src="{{ asset('assets/images/black-man-dancing.gif') }}" alt="">
+                <div class="card-header">Y O U R &nbsp; P R O F I L E</div>
+                <img class="img-profile" src="{{ asset('storage/tutors/' . Auth::user()->id . '.jpg') }}" alt="profile">
                 </center>
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -16,7 +17,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Full Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input value="{{ Auth::user()->name }}" id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -30,7 +31,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input value="{{ Auth::user()->email }}" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -44,7 +45,7 @@
                             <label for="phone" class="col-md-4 col-form-label text-md-end">{{ __('Phone') }}</label>
 
                             <div class="col-md-6">
-                                <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone">
+                                <input value="{{ Auth::user()->phone }}" id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone">
 
                                 @error('phone')
                                     <span class="invalid-feedback" role="alert">
@@ -58,7 +59,7 @@
                             <label for="address" class="col-md-4 col-form-label text-md-end">{{ __('Mailing Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address">
+                                <input value="{{ Auth::user()->address }}" id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address">
 
                                 @error('address')
                                     <span class="invalid-feedback" role="alert">
@@ -73,22 +74,36 @@
 
                             <div class="col-md-6">
                                 <select id="state" type="text" class="form-control form-select @error('state') is-invalid @enderror" name="state" value="{{ old('state') }}" required>
-                                    <option selected>Select a state</option>
-                                    <option value="johor">Johor</option>
-                                    <option value="kedah">Kedah</option>
-                                    <option value="kelantan">kelantan</option>
-                                    <option value="malacca">Malacca</option>
-                                    <option value="negeri sembilan">Negeri Sembilan</option>
-                                    <option value="pahang">Pahang</option>
-                                    <option value="penang">Penang</option>
-                                    <option value="perak">Perak</option>
-                                    <option value="perlis">Perlis</option>
-                                    <option value="sabah">Sabah</option>
-                                    <option value="sarawak">Sarawak</option>
-                                    <option value="selangor">Selangor</option>
-                                    <option value="terengganu">Terengganu</option>
+                                    <!-- //TODO: remove brute force coding -->
+                                    @if( Auth::user()->state == "Johor" )
+                                    <option selected value="Johor">Johor</option>
+                                    @elseif( Auth::user()->state == "Kedah" )
+                                    <option value="Kedah">Kedah</option>
+                                    @elseif( Auth::user()->state == "Kelantan" )
+                                    <option value="Kelantan">Kelantan</option>
+                                    @elseif( Auth::user()->state == "Malacca" )
+                                    <option value="Malacca">Malacca</option>
+                                    @elseif( Auth::user()->state == "Negeri Sembilan" )
+                                    <option value="Negeri Sembilan">Negeri Sembilan</option>
+                                    @elseif( Auth::user()->state == "Pahang" )
+                                    <option value="Pahang">Pahang</option>
+                                    @elseif( Auth::user()->state == "Penang" )
+                                    <option value="Penang">Penang</option>
+                                    @elseif( Auth::user()->state == "Perak" )
+                                    <option value="Perak">Perak</option>
+                                    @elseif( Auth::user()->state == "Perlis" )
+                                    <option value="Perlis">Perlis</option>
+                                    @elseif( Auth::user()->state == "Sabah" )
+                                    <option value="Sabah">Sabah</option>
+                                    @elseif( Auth::user()->state == "Sarawak" )
+                                    <option value="Sarawak">Sarawak</option>
+                                    @elseif( Auth::user()->state == "Selangor" )
+                                    <option value="Selangor">Selangor</option>
+                                    @elseif( Auth::user()->state == "Terengganu" )>
+                                    <option value="Terengganu">Terengganu</option>
+                                    @endif
                                 </select>
-
+                                
                                 @error('state')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -98,12 +113,12 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                            <label for="description" class="col-md-4 col-form-label text-md-end">{{ __('Description') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <textarea rows="5" placeholder="Tell a little bit about yourself" id="description" type="description" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}">{{Auth::user()->description}}</textarea>
 
-                                @error('password')
+                                @error('description')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -111,18 +126,10 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                    {{ __('Edit') }}
                                 </button>
                             </div>
                         </div>
