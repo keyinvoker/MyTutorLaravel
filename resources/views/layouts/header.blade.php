@@ -3,9 +3,15 @@
 <header>
     <nav class="navbar navbar-expand-md navbar-light bg-purple bg-gradient shadow-sm">
             <div class="container">
+                @guest
+                <a class="navbar-brand text-light" href="{{ route('welcome') }}">
+                    MyTutor for Tutors
+                </a>
+                @else
                 <a class="navbar-brand text-light" href="{{ route('home') }}">
                     MyTutor for Tutors
                 </a>
+                @endguest
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>

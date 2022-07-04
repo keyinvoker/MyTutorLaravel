@@ -5,10 +5,20 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+
                 <center>
                 <div class="card-header">R E G I S T E R &nbsp; B E L O W</div>
-                <img style="width: 150px; margin: 6px;" src="{{ asset('assets/images/black-man-dancing.gif') }}" alt="">
+                <img style="height: 100px; margin: 6px;" src="{{ asset('assets/images/walking-duck.gif') }}" alt="">
                 </center>
+
+                <audio autoplay loop id="background-audio">
+                    <source src="https://dm0qx8t0i9gc9.cloudfront.net/previews/audio/ryvjOPH8Bk0e5q2nb/audioblocks-ballet-blanc_Sm2cjqG5P_NWM.mp3" type="audio/mpeg">
+                </audio>
+                <script>
+                    var audio = document.getElementById("background-audio");
+                    audio.volume = 0.2;
+                </script>
+
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -74,19 +84,19 @@
                             <div class="col-md-6">
                                 <select id="state" type="text" class="form-control form-select @error('state') is-invalid @enderror" name="state" value="{{ old('state') }}" required>
                                     <option selected>Select a state</option>
-                                    <option value="johor">Johor</option>
-                                    <option value="kedah">Kedah</option>
-                                    <option value="kelantan">kelantan</option>
-                                    <option value="malacca">Malacca</option>
-                                    <option value="negeri sembilan">Negeri Sembilan</option>
-                                    <option value="pahang">Pahang</option>
-                                    <option value="penang">Penang</option>
-                                    <option value="perak">Perak</option>
-                                    <option value="perlis">Perlis</option>
-                                    <option value="sabah">Sabah</option>
-                                    <option value="sarawak">Sarawak</option>
-                                    <option value="selangor">Selangor</option>
-                                    <option value="terengganu">Terengganu</option>
+                                    <option value="Johor">Johor</option>
+                                    <option value="Kedah">Kedah</option>
+                                    <option value="Kelantan">Kelantan</option>
+                                    <option value="Malacca">Malacca</option>
+                                    <option value="Negeri Sembilan">Negeri Sembilan</option>
+                                    <option value="Pahang">Pahang</option>
+                                    <option value="Penang">Penang</option>
+                                    <option value="Perak">Perak</option>
+                                    <option value="Perlis">Perlis</option>
+                                    <option value="Pabah">Sabah</option>
+                                    <option value="Parawak">Sarawak</option>
+                                    <option value="Pelangor">Selangor</option>
+                                    <option value="Terengganu">Terengganu</option>
                                 </select>
 
                                 @error('state')

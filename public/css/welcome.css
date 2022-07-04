@@ -1,0 +1,13 @@
+.text-span {
+    color: #6f42c1;
+    font-weight: bold;
+}
+
+.construction-img {
+    width: 50%;
+    margin-top: 20px;
+}
+
+.construction-text {
+    color: orangered;
+}

@@ -6,7 +6,7 @@
 <div class="container">
     <div class="card">
         
-        <form action="{{ route('subject.delete',$selectedSubject->subject_id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('subject.delete', $selectedSubject->subject_id) }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <center>
@@ -17,7 +17,7 @@
 
             <div class="card">
                 <div class="d-flex align-items-center">
-                    <img src="{{ asset('storage/subjects/' . $selectedSubject->subject_id . '.jpg') }}" alt="Subject image" class="details-img">
+                    <img src="{{ asset('storage/subjects/' . $selectedSubject->subject_id . '.jpg') }}" alt="Subject image" class="details-img"  onerror="this.onerror=null; this.src=`../storage/subjects/default.jpg`">
                     
     
                     <div class="card-body">

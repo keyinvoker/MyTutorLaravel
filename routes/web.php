@@ -27,12 +27,10 @@ Route::fallback(function () {
 	';
 });
 
-//WELCOME
-// TODO: make a welcome page
-//
+// WELCOME/LANDING
+Route::get('/', [HomeController::class, 'index'])->name('welcome');
 
-// HOME / LANDING
-Route::get('/', [HomeController::class, 'home'])->name('home');
+// HOME
 Route::get('/home', [HomeController::class, 'home'])->name('home');
 
 // PROFILE
@@ -42,6 +40,6 @@ Route::get('/profile', [UserController::class, 'getProfileForm'])->name('profile
 Route::get('/subject/{id}', [SubjectController::class, 'getDetails'])->name('subject.details');
 Route::get('/edit/{id}', [SubjectController::class, 'getEditingForm'])->name('subject.editForm');
 Route::post('/edit/{id}', [SubjectController::class, 'editSubject'])->name('subject.edit');
-Route::get('/delete/{id}', [SubjectController::class, 'deleteSubject'])->name('subject.delete');
+Route::post('/delete/{id}', [SubjectController::class, 'deleteSubject'])->name('subject.delete');
 Route::get('/insert', [SubjectController::class, 'getInsertForm'])->name('subject.insertForm');
 Route::post('/insert', [SubjectController::class, 'insertSubject'])->name('subject.insert');

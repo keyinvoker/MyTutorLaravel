@@ -5,7 +5,6 @@
 @section('content')
 <div class="container">
     <div class="card">
-        
         <form action="{{ route('subject.insert') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
@@ -96,7 +95,6 @@
             </div>
 
         </form>
-
     </div>
 </div>
 @endsection

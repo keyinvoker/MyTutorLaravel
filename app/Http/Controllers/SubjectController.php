@@ -81,4 +81,11 @@ class SubjectController extends Controller
 
         return redirect('home');
     }
+    
+    public function deleteSubject(Request $request){
+        $id = $request->id;
+        $selectedSubject = Subject::where('subject_id', $id)->first();
+        $selectedSubject->delete();
+        return redirect('home');
+    }
 }

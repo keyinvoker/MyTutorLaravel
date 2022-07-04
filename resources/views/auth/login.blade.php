@@ -8,20 +8,19 @@
                 
                 <center>
                 <div class="card-header">L O G I N &nbsp; B E L O W</div>
-                <img style="width: 150px; margin: 6px;" src="{{ asset('assets/images/black-man-dancing.gif') }}" alt="">
+                <img style="height: 100px; margin: 6px;" src="{{ asset('assets/images/black-man-dancing.gif') }}" alt="">
                 </center>
 
-                <div class="card-body">
-                    
-                    <!-- TODO: add audio control buttons -->
-                    <audio autoplay loop id="background-audio">
-                        <source src="{{ asset('assets/audios/elevator-music.mp3') }}" type="audio/mpeg">
-                    </audio>
-                    <script>
-                        var audio = document.getElementById("background-audio");
-                        audio.volume = 0.2;
-                    </script>
+                <!-- //TODO: add audio control buttons -->
+                <audio autoplay loop id="background-audio">
+                    <source src="{{ asset('assets/audios/elevator-music.mp3') }}" type="audio/mpeg">
+                </audio>
+                <script>
+                    var audio = document.getElementById("background-audio");
+                    audio.volume = 0.2;
+                </script>
 
+                <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
